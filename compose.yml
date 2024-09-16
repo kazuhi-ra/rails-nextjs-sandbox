@@ -1,0 +1,18 @@
+services:
+  front:
+    build:
+      context: ./front
+      dockerfile: ./Dockerfile.prod
+    command: npm run start
+    ports:
+      - 3000:3000
+
+  server:
+    build:
+      context: ./server
+      dockerfile: ./Dockerfile.prod
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails server -b '0.0.0.0' -p 3001"
+    ports:
+      - 3001:3001
+    environment:
+      RAILS_MASTER_KEY: ${RAILS_MASTER_KEY}

@@ -1,5 +1,5 @@
 const getPosts = async (): Promise<{ title: string }[]> => {
-  const apiURL = process.env.API_URL ?? "http://localhost:3001";
+  const apiURL = process.env.API_URL ?? "http://server:3001";
   const response = await fetch(`${apiURL}/posts`, {
     cache: "no-cache",
   });
