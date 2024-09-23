@@ -31,10 +31,12 @@ spec:
                 secretKeyRef:
                   name: my-secret
                   key: rails-master-key
-          image: rails-nextjs-sandbox-server:latest
+          image: ghcr.io/kazuhi-ra/rails-nextjs-sandbox-server:latest
           imagePullPolicy: IfNotPresent
           name: server
           ports:
             - containerPort: 3001
               protocol: TCP
+      imagePullSecrets:
+        - name: ghcr-secret
       restartPolicy: Always

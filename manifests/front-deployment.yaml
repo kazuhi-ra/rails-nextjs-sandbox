@@ -25,10 +25,12 @@ spec:
             - npm
             - run
             - start
-          image: rails-nextjs-sandbox-front:latest
+          image: ghcr.io/kazuhi-ra/rails-nextjs-sandbox-front:latest
           imagePullPolicy: IfNotPresent
           name: front
           ports:
             - containerPort: 3000
               protocol: TCP
+      imagePullSecrets:
+        - name: ghcr-secret
       restartPolicy: Always
